@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "29555407315",
+    "project_id": "hivetodolistwithgetx",
+    "storage_bucket": "hivetodolistwithgetx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29555407315:android:b4b9cd4df2b37ae3749726",
+        "android_client_info": {
+          "package_name": "com.hive_getx.hive_getx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29555407315-r5dq78aba5ombuuugopajnraomii6sgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEdiHReKsiifEIgYM5MndSofIuujGtP5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29555407315-r5dq78aba5ombuuugopajnraomii6sgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
