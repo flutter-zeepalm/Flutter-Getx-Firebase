@@ -11,18 +11,16 @@ class UserData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          FutureBuilder<UserModel?>(
-              future: userController.getCurrentUser(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
-                }
-                UserModel currentUser = snapshot.data!;
-                return Text(currentUser.name!);
-              }),
-        ],
+      body: Center(
+        child: FutureBuilder<UserModel?>(
+            future: userController.getCurrentUser(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              }
+              UserModel currentUser = snapshot.data!;
+              return Text(currentUser.email!);
+            }),
       ),
     );
   }

@@ -9,11 +9,23 @@ import 'package:hive_getx/app/modules/home/controllers/todo_controller.dart';
 import 'package:hive_getx/app/modules/home/views/add_task.dart';
 import 'package:hive_getx/app/modules/home/views/timeline.dart';
 import 'package:hive_getx/app/modules/home/views/update_screen.dart';
+import 'package:hive_getx/app/modules/home/views/user_data_screen.dart';
 
 import '../Widgets/custom_app_bar.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+
+
+
+class _MyHomePageState extends State<MyHomePage> {
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +39,7 @@ class MyHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
                   onTap: () {
-                    Get.to(()=> TimelineScreen());
+                    Get.to(() => TimelineScreen());
                   },
                   child: Icon(Icons.feed_rounded)),
             ),
@@ -36,15 +48,20 @@ class MyHomePage extends StatelessWidget {
               child: InkWell(
                   onTap: () async {
                     await FirebaseAuth.instance.signOut();
-                  }, child: Icon(Icons.exit_to_app_outlined)),
+                  },
+                  child: Icon(Icons.exit_to_app_outlined)),
             )
           ],
           title: 'To do List',
-          leading: SizedBox(),
+          leading: InkWell(
+                  onTap: () {
+                    Get.to(() => UserData());
+                  },
+                  child: Icon(Icons.add)),
         ),
       ),
       body: GetBuilder<TodoController>(
-         init: TodoController(),
+        init: TodoController(),
         builder: (cd) {
           return FutureBuilder<List<Todo>>(
               future: cd.getUsersTask(),
@@ -74,7 +91,6 @@ class MyHomePage extends StatelessWidget {
                           key: UniqueKey(),
                           onDismissed: (direction) {
                             cd.deleteTask(todo);
-                           
                           },
                           child: ListTile(
                             onTap: () {
